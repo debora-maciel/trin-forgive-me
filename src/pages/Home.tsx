@@ -16,10 +16,18 @@ function Home() {
     const moods = 'Patient'
 
     const message = localStorage.getItem('pandaMessage') && setPandaMessage(localStorage.getItem('pandaMessage') || '')
-    setPandaMessage(message || messages)
-    
+    if (message) {
+      setPandaMessage(message)
+    } else {
+      setPandaMessage(messages)
+    }
+
     const mood = localStorage.getItem('pandaMood') && setPandaMood(localStorage.getItem('pandaMood') || '')
-    setPandaMood(mood || moods)
+    if (mood) {
+      setPandaMood(mood)
+    } else {
+      setPandaMood(moods)
+    }
   }
 
   function onSongOfTheDay() {
