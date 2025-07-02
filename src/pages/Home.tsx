@@ -1,4 +1,3 @@
-import hello from '/hello.gif'
 import spotify from '/spotify.png'
 import '../App.css'
 import { useEffect, useState } from 'react'
@@ -34,6 +33,16 @@ function Home() {
     setPandaSong(true)
   }
 
+  const storedImage = () => {
+    const image = localStorage.getItem('pandaImage')
+    if (image != null && image !== 'undefined') {
+      return image.replace(/"/g, '').replace(/'/g, '');
+    } else {
+      return '/zzz.gif'
+    }
+  }
+
+
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/debora-maciel/trin-forgive-me/refs/heads/main/feeling.json')
       .then(response => {
@@ -45,6 +54,7 @@ function Home() {
       .then(data => {
         localStorage.setItem('pandaMood', JSON.stringify(data.mood));
         localStorage.setItem('pandaMessage', JSON.stringify(data.message));
+        localStorage.setItem('pandaImage', JSON.stringify(data.image));
         setPandaSongLink(data.song);
         console.log('Fetched JSON:', data);
       })
@@ -88,11 +98,11 @@ function Home() {
         </div>
       </Dialog>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={hello} className='w-[200px]' alt="Vite logo" />
-        </a>
+        {/* <a href="https://www.economist.com/sites/default/files/images/print-edition/20160910_CNP002_0.jpg" target="_blank"> */}
+        <img src={storedImage()} className='w-[200px]' alt={storedImage()} />
+        {/* </a> */}
       </div>
-      <h3>Check what Panda Arrependido have to say daily!</h3>
+      <p className='text-xl'>Check what Panda Arrependido have to say!</p>
       <div className="card">
         <button onClick={() => onWhatAreUfeelingsToday()} className="button">
           How ure feeling today Panda?
