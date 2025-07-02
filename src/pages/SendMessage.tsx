@@ -17,7 +17,7 @@ export default function SendMessage() {
             <form className="p-5 rounded-lg shadow-md w-full flex flex-col justify-start gap-3" action="mailto:deh.ferre@icloud.com?subject=Message to Panda" method="post" encType="text/plain">
                 <div className="flex flex-col gap-2 justify-start items-start">
                     <label htmlFor="name">Name</label>
-                    <input placeholder="If ure not trin Panda dont wanna receive message :c" className="rounded-lg shadow-md border-2 px-3 py-2 w-full" type="text" name="name" />
+                    <input placeholder="If ure not trin Panda dont want :c" className="rounded-lg shadow-md border-2 px-3 py-2 w-full" type="text" name="name" />
                 </div>
                 <div className="flex flex-col gap-2 justify-start items-start">
                     <label htmlFor="Message">Message</label>

@@ -45,8 +45,8 @@ function Home() {
         <p>
         </p>
       </div>
-      <Link to={'/send-message'} className="read-the-docs">
-        Click here to send a message to Panda Arrependido
+      <Link to={'/send-message'} className="read-the-docs mt-3 text-sm">
+        Message Panda Arrependido
       </Link>
     </div>
   )
