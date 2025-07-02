@@ -17,6 +17,7 @@ function Home() {
 
     const message = localStorage.getItem('pandaMessage') && setPandaMessage(localStorage.getItem('pandaMessage') || '')
     setPandaMessage(message || messages)
+    
     const mood = localStorage.getItem('pandaMood') && setPandaMood(localStorage.getItem('pandaMood') || '')
     setPandaMood(mood || moods)
   }
@@ -51,8 +52,8 @@ function Home() {
       <Dialog open={!!pandaMessage} onClose={() => setPandaMessage('')}>
         <div className='flex flex-col items-center justify-center p-5'>
           <h2 className='text-2xl font-bold mb-4'>Panda Arrependido</h2>
-          <p className='text-lg mb-4'>{pandaMessage}</p>
-          <p className='text-md text-gray-500'>Panda's mood: <span className='font-semibold'>{pandaMood}</span></p>
+          <p className='text-base mb-4 text-left bg-gray-200 shadow-inner rounded-lg p-2'>{pandaMessage}</p>
+          <p className='text-md text-gray-500 mb-2'>Panda's mood: <span className='font-semibold'>{pandaMood}</span></p>
           <button
             className='button text-black dark:text-white'
             onClick={() => setPandaMessage('')}
