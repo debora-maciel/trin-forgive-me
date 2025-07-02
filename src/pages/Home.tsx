@@ -102,7 +102,7 @@ function Home() {
         <img src={storedImage()} className='w-[200px]' alt={storedImage()} />
         {/* </a> */}
       </div>
-      <p className='text-xl'>Check what Panda Arrependido have to say!</p>
+      <p className='text-xl font-bold'>Check what Panda Arrependido have to say!</p>
       <div className="card">
         <button onClick={() => onWhatAreUfeelingsToday()} className="button">
           How ure feeling today Panda?
