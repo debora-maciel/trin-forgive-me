@@ -1,7 +1,7 @@
 import spotify from '/spotify.png'
 import '../App.css'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom '
 import { Dialog } from '@mui/material'
 
 function Home() {
@@ -119,9 +119,9 @@ function Home() {
           </p>
         </div>
       )}
-      <Link to={'/send-message'} className="read-the-docs mt-3 text-sm">
+      {/* <Link to={'/send-message'} className="read-the-docs mt-3 text-sm">
         Message Panda Arrependido
-      </Link>
+      </Link> */}
     </div>
   )
 }
