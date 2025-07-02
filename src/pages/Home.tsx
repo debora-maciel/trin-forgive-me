@@ -15,14 +15,14 @@ function Home() {
     const messages = 'hey trin... sorry but Panda have nothing to say today 🐼'
     const moods = 'Patient'
 
-    const message = localStorage.getItem('pandaMessage') && setPandaMessage(localStorage.getItem('pandaMessage') || '')
+    const message = localStorage.getItem('pandaMessage')
     if (message) {
       setPandaMessage(message)
     } else {
       setPandaMessage(messages)
     }
 
-    const mood = localStorage.getItem('pandaMood') && setPandaMood(localStorage.getItem('pandaMood') || '')
+    const mood = localStorage.getItem('pandaMood')
     if (mood) {
       setPandaMood(mood)
     } else {
