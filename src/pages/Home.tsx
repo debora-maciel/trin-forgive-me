@@ -1,11 +1,13 @@
 import hello from '/hello.gif'
+import spotify from '/spotify.png'
 import '../App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Dialog } from '@mui/material'
 
 function Home() {
   const [pandaMessage, setPandaMessage] = useState<string>('')
+  const [pandaSong, setPandaSong] = useState<string>('')
   const [pandaMood, setPandaMood] = useState<string>('')
 
   function onWhatAreUfeelingsToday() {
@@ -17,6 +19,28 @@ function Home() {
     setPandaMood(moods)
   }
 
+  function onSongOfTheDay() {
+    setPandaSong('aa')
+  }
+
+  useEffect(() => {
+    fetch('https://raw.githubusercontent.com/your-username/your-repo/main/data.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not OK');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Fetched JSON:', data);
+      })
+      .catch(error => {
+        console.error('Error fetching JSON:', error);
+      });
+
+
+  }, [])
+
   return (
     <div className='flex flex-col items-center justify-center h-full'>
       <Dialog open={!!pandaMessage} onClose={() => setPandaMessage('')}>
@@ -25,8 +49,23 @@ function Home() {
           <p className='text-lg mb-4'>{pandaMessage}</p>
           <p className='text-md text-gray-500'>Panda's mood: <span className='font-semibold'>{pandaMood}</span></p>
           <button
-            className='mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600'
+            className='button text-black dark:text-white'
             onClick={() => setPandaMessage('')}
+          >
+            Close
+          </button>
+        </div>
+      </Dialog>
+      <Dialog open={!!pandaSong} onClose={() => setPandaSong('')}>
+        <div className='flex flex-col items-center justify-center p-5'>
+          <h2 className='text-2xl font-bold mb-4'>Panda's Song of the Day</h2>
+          <p className='text-lg mb-4'>{pandaSong}</p>
+          <iframe className="border-radius:12px" src="https://open.spotify.com/embed/track/6LDAUF7L1PhZh0utprIpe2?utm_source=generator" width="100%" height="352" frameBorder="0"
+            allowFullScreen={false} allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <img src={spotify} alt="Spotify logo" className='w-[100px] mb-4' />
+          <button
+            className='button text-black dark:text-white'
+            onClick={() => setPandaSong('')}
           >
             Close
           </button>
@@ -41,6 +80,13 @@ function Home() {
       <div className="card">
         <button onClick={() => onWhatAreUfeelingsToday()} className="button">
           How ure feeling today Panda?
+        </button>
+        <p>
+        </p>
+      </div>
+      <div className="card">
+        <button onClick={() => onSongOfTheDay()} className="rounded-[8px] bg-green-500">
+          Song of the day
         </button>
         <p>
         </p>
