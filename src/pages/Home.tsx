@@ -107,11 +107,7 @@ function Home() {
           </p>
         </div>
       )}
-      {pandaSongLink && (
-        <button onClick={() => onSongOfTheDay()} className="rounded-[8px] bg-green-500 flex gap-2 items-center justify-center ">
-          <img src={spotify} alt="Spotify logo" className='w-[20px]' />  Song of the day
-        </button>
-      )}
+      <img src='https://github.com/debora-maciel/trin-forgive-me/blob/main/picture.png'/>
       {/* <Link to={'/send-message'} className="read-the-docs mt-3 text-sm">
         Message Panda Arrependido
       </Link> */}
