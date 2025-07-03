@@ -83,7 +83,7 @@ function Home() {
       <p className='text-xl font-bold'>Check what Panda Arrependido have to say!</p>
       <div className="card">
         <button onClick={() => onWhatAreUfeelingsToday()} className="button">
-          How ure feeling today Panda?
+          What do u have to tell me today, Panda?
         </button>
         <p>
         </p>
