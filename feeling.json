@@ -5,9 +5,14 @@
     "image": "/love2.gif",
     "dailyPictures": [
         {
-        "name": "03-07-2025.jpeg",
-        "comment": "Hmmm 😋",
-        "date:" "3 Jul 2025"
-        }
+            "name": "03-07-2025.jpeg",
+            "comment": "Hmmm 😋",
+            "date:" "3 Jul 2025"
+        },
+        {
+            "name": "02-07-2025.jpeg",
+            "comment": "they were following us",
+            "date:" "2 Jul 2025"
+        },
     ]
 }
