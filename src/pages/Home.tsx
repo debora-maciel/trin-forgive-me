@@ -13,6 +13,7 @@ function Home() {
   const [openDailyPicture, setOpenDailyPicture] = useState<boolean>(false)
   const [dailyPicture, setDailyPicture] = useState<string>('')
   const [pandaMood, setPandaMood] = useState<string>('')
+  const [dailyPictureComment, setDailyPictureComment] = useState<string>('')
 
   function onWhatAreUfeelingsToday() {
     const messages = 'hey trin... sorry but Panda have nothing to say today 🐼'
@@ -46,7 +47,6 @@ function Home() {
     }
   }
 
-
   useEffect(() => {
     fetch('https://raw.githubusercontent.com/debora-maciel/trin-forgive-me/refs/heads/main/feeling.json')
       .then(response => {
@@ -56,24 +56,23 @@ function Home() {
         return response.json();
       })
       .then(data => {
+        console.log('Fetched JSON:', data);
         localStorage.setItem('pandaMood', JSON.stringify(data.mood));
         localStorage.setItem('pandaMessage', JSON.stringify(data.message));
         localStorage.setItem('pandaImage', JSON.stringify(data.image));
         setDailyPicture(data.dailyPicture)
         setPandaSongLink(data.song);
-        console.log('Fetched JSON:', data);
+        setDailyPictureComment(data.dailyPictureComment)
       })
       .catch(error => {
         console.error('Error fetching JSON:', error);
       });
-
-
   }, [])
 
   return (
     <div className='flex flex-col items-center justify-center h-full'>
       <PandaMessage key={'panda-message-component'} pandaMessage={pandaMessage} pandaMood={pandaMood} setPandaMessage={setPandaMessage} />
-      <DailyPicture key={'daily-picture-component'} dailyPicture={dailyPicture} openDailyPicture={openDailyPicture} setOpenDailyPicture={setOpenDailyPicture} />
+      <DailyPicture key={'daily-picture-component'} dailyPictureComment={dailyPictureComment} dailyPicture={dailyPicture} openDailyPicture={openDailyPicture} setOpenDailyPicture={setOpenDailyPicture} />
       <PandaSong key={'panda-song-component'} pandaSong={pandaSong} pandaSongLink={pandaSongLink} setPandaSong={setPandaSong} />
       <div>
         {/* <a href="https://www.economist.com/sites/default/files/images/print-edition/20160910_CNP002_0.jpg" target="_blank"> */}
