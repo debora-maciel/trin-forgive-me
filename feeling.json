@@ -2,6 +2,18 @@
     "mood": "Supportive",
     "song": "https://open.spotify.com/embed/track/7Ep9IjggTVy070hEkaSLIa?utm_source=generator",
     "message": "Everything is going to be fine, don't forget the good things ab yourself X <3 🐼",
+    "messages" : [
+        {
+            "message" : "Everything is going to be fine, don't forget the good things ab yourself X <3 🐼",
+            "date": "3 Jul 2025",
+            "mood": "Supportive"
+        },
+        {
+            "message" : "Everything is going to be fine, don't forget the good things ab yourself X <3 🐼",
+            "date": "2 Jul 2025",
+            "mood": "Supportive"
+        },
+    ],
     "image": "/hello2.gif",
     "dailyPictures": [
         {
