@@ -1,14 +1,17 @@
 import spotify from '/spotify.png'
+import camera from '/camera.png'
 import '../App.css'
 import { useEffect, useState } from 'react'
-// import { Link } from 'react-router-dom '
-import { Dialog } from '@mui/material'
 import PandaMessage from './components/PandaMessage'
+import DailyPicture from './components/DailyPicture'
+import PandaSong from './components/PandaSong'
 
 function Home() {
   const [pandaMessage, setPandaMessage] = useState<string>('')
   const [pandaSongLink, setPandaSongLink] = useState<string>('')
   const [pandaSong, setPandaSong] = useState<boolean>(false)
+  const [openDailyPicture, setOpenDailyPicture] = useState<boolean>(false)
+  const [dailyPicture, setDailyPicture] = useState<string>('')
   const [pandaMood, setPandaMood] = useState<string>('')
 
   function onWhatAreUfeelingsToday() {
@@ -56,6 +59,7 @@ function Home() {
         localStorage.setItem('pandaMood', JSON.stringify(data.mood));
         localStorage.setItem('pandaMessage', JSON.stringify(data.message));
         localStorage.setItem('pandaImage', JSON.stringify(data.image));
+        setDailyPicture(data.dailyPicture)
         setPandaSongLink(data.song);
         console.log('Fetched JSON:', data);
       })
@@ -69,22 +73,8 @@ function Home() {
   return (
     <div className='flex flex-col items-center justify-center h-full'>
       <PandaMessage key={'panda-message-component'} pandaMessage={pandaMessage} pandaMood={pandaMood} setPandaMessage={setPandaMessage} />
-      <Dialog open={pandaSong} onClose={() => setPandaSong(false)}>
-        <div className='flex flex-col items-center justify-center p-5 rounded-full'>
-          <h2 className='text-2xl font-bold mb-4'>Panda's Song of the Day</h2>
-          <p className='text-lg mb-4'>{pandaSong}</p>
-          <iframe src={pandaSongLink}
-            width="100%" height="152" allowFullScreen={true}
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"></iframe>
-          <button
-            className='button text-black dark:text-white mt-4'
-            onClick={() => setPandaSong(false)}
-          >
-            Close
-          </button>
-        </div>
-      </Dialog>
+      <DailyPicture key={'daily-picture-component'} dailyPicture={dailyPicture} openDailyPicture={openDailyPicture} setOpenDailyPicture={setOpenDailyPicture} />
+      <PandaSong key={'panda-song-component'} pandaSong={pandaSong} pandaSongLink={pandaSongLink} setPandaSong={setPandaSong} />
       <div>
         {/* <a href="https://www.economist.com/sites/default/files/images/print-edition/20160910_CNP002_0.jpg" target="_blank"> */}
         <img draggable={true} src={storedImage()} className='w-[200px]' alt={storedImage()} />
@@ -107,7 +97,11 @@ function Home() {
           </p>
         </div>
       )}
-      <img src='https://github.com/debora-maciel/trin-forgive-me/blob/main/picture.png'/>
+      {dailyPicture && (
+        <button onClick={() => setOpenDailyPicture(true)} className="rounded-[8px] bg-green-500 flex gap-2 items-center justify-center ">
+          <img src={camera} alt="Photo logo" className='w-[20px]' />  Picture of the day
+        </button>
+      )}
       {/* <Link to={'/send-message'} className="read-the-docs mt-3 text-sm">
         Message Panda Arrependido
       </Link> */}
