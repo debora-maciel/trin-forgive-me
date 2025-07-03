@@ -10,16 +10,16 @@ interface IProps {
 export default function DailyPicture({ setOpenDailyPicture, dailyPictures, openDailyPicture }: IProps) {
     console.log('DailyPicture component rendered with dailyPictures:', dailyPictures);
     return (
-        <Dialog open={openDailyPicture} onClose={() => setOpenDailyPicture(false)}>
+        <Dialog fullWidth={true} open={openDailyPicture} onClose={() => setOpenDailyPicture(false)}>
             <div className='flex flex-col items-center justify-center p-5 rounded-full'>
-                <h2 className='text-2xl font-bold mb-4'>Panda's Picture of the Day</h2>
+                <h2 className='text-2xl font-light mb-4'>Panda's Picture of the Day</h2>
                 <DailyPictureSwipe dailyPictures={dailyPictures}/>
                 {/* <div className="rounded-xl border border-black/10 shadow-md">
                     <img className="w-[300px] rounded-t-lg" src={`https://raw.githubusercontent.com/debora-maciel/trin-forgive-me/refs/heads/main/images/${dailyPicture}`} />
                     <p className="text-sm p-2">{dailyPictureComment}</p>
                 </div> */}
                 <button
-                    className='button text-black dark:text-white mt-4'
+                    className='button text-black dark:text-white mt-1'
                     onClick={() => setOpenDailyPicture(false)}
                 >
                     Close
