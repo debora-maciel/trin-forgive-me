@@ -3,6 +3,7 @@ import '../App.css'
 import { useEffect, useState } from 'react'
 // import { Link } from 'react-router-dom '
 import { Dialog } from '@mui/material'
+import PandaMessage from './components/PandaMessage'
 
 function Home() {
   const [pandaMessage, setPandaMessage] = useState<string>('')
@@ -67,19 +68,7 @@ function Home() {
 
   return (
     <div className='flex flex-col items-center justify-center h-full'>
-      <Dialog open={!!pandaMessage} onClose={() => setPandaMessage('')}>
-        <div className='flex flex-col items-center justify-center p-5'>
-          <h2 className='text-2xl font-bold mb-4'>Panda Arrependido</h2>
-          <p className='text-base mb-4 text-left bg-gray-200 shadow-inner rounded-lg p-2'>{pandaMessage.replace(/"/g, '').replace(/'/g, '')}</p>
-          <p className='text-md text-gray-500 mb-2'>Panda's mood: <span className='font-semibold'>{pandaMood}</span></p>
-          <button
-            className='button text-black dark:text-white'
-            onClick={() => setPandaMessage('')}
-          >
-            Close
-          </button>
-        </div>
-      </Dialog>
+      <PandaMessage key={'panda-message-component'} pandaMessage={pandaMessage} pandaMood={pandaMood} setPandaMessage={setPandaMessage} />
       <Dialog open={pandaSong} onClose={() => setPandaSong(false)}>
         <div className='flex flex-col items-center justify-center p-5 rounded-full'>
           <h2 className='text-2xl font-bold mb-4'>Panda's Song of the Day</h2>
@@ -117,6 +106,11 @@ function Home() {
           <p>
           </p>
         </div>
+      )}
+      {pandaSongLink && (
+        <button onClick={() => onSongOfTheDay()} className="rounded-[8px] bg-green-500 flex gap-2 items-center justify-center ">
+          <img src={spotify} alt="Spotify logo" className='w-[20px]' />  Song of the day
+        </button>
       )}
       {/* <Link to={'/send-message'} className="read-the-docs mt-3 text-sm">
         Message Panda Arrependido
