@@ -81,16 +81,15 @@ function Home() {
         </div>
       </Dialog>
       <Dialog open={pandaSong} onClose={() => setPandaSong(false)}>
-        <div className='flex flex-col items-center justify-center p-5'>
+        <div className='flex flex-col items-center justify-center p-5 rounded-full'>
           <h2 className='text-2xl font-bold mb-4'>Panda's Song of the Day</h2>
           <p className='text-lg mb-4'>{pandaSong}</p>
-          <iframe className="border-radius:12px"
-            src={pandaSongLink} width="100%" height="352"
-            frameBorder="0"
-            allowFullScreen={true}
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <iframe src={pandaSongLink}
+            width="100%" height="152" allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
           <button
-            className='button text-black dark:text-white mt-2'
+            className='button text-black dark:text-white mt-4'
             onClick={() => setPandaSong(false)}
           >
             Close
@@ -99,7 +98,7 @@ function Home() {
       </Dialog>
       <div>
         {/* <a href="https://www.economist.com/sites/default/files/images/print-edition/20160910_CNP002_0.jpg" target="_blank"> */}
-        <img src={storedImage()} className='w-[200px]' alt={storedImage()} />
+        <img draggable={true} src={storedImage()} className='w-[200px]' alt={storedImage()} />
         {/* </a> */}
       </div>
       <p className='text-xl font-bold'>Check what Panda Arrependido have to say!</p>
