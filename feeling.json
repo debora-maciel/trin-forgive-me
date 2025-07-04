@@ -22,6 +22,11 @@
     "image": "/hello2.gif",
     "dailyPictures": [
         {
+            "name": "IMG_4546.jpeg",
+            "comment": "cute bookstore i found today",
+            "date": "4 Jul 2025"
+        },
+        {
             "name": "03-07-2025.jpeg",
             "comment": "Hmmm 😋",
             "date": "3 Jul 2025"
