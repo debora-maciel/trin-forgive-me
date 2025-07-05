@@ -3,9 +3,14 @@
     "song": "https://open.spotify.com/embed/track/3k2ccZTU1D3JK9hVR0qdbO?utm_source=generator",
     "videos": [
         {
-        "title": "TRYING (2021) | ADHD Short Film | Sam Labrecque",
-        "description": "",
-        "link": "https://www.youtube.com/watch?v=LGzwoPJ3sE0"
+            "title": "TRYING (2021) | ADHD Short Film | Sam Labrecque",
+            "description": "",
+            "link": "https://www.youtube.com/watch?v=LGzwoPJ3sE0"
+        },
+        {
+             "title": " Faye Webster Rates Weekdays",
+            "description": "",
+            "link": "https://www.youtube.com/watch?v=J110IrVPQ5Q&list=LL&index=7"
         }
     ],
     "message": "im proud of myself for controlling my overthinking",
