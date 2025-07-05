@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import PandaMessage from './components/PandaMessage'
 import DailyPicture from './components/DailyPicture'
 import { MdHistory } from "react-icons/md";
-import { FaPhotoVideo } from "react-icons/fa"
+// import { FaPhotoVideo } from "react-icons/fa"
 import PandaSong from './components/PandaSong'
 import type { DailyPictureType } from './components/DailyPictureSwipe'
 import { Link } from 'react-router-dom';
@@ -78,9 +78,9 @@ function Home() {
       <Link to="/history" className='absolute top-0 right-0 p-4'>
         <MdHistory size={34} className='text-black dark:text-white' />
       </Link>
-      <Link to="/interesting-videos" className='absolute top-0 right-14 p-4'>
+      {/* <Link to="/interesting-videos" className='absolute top-0 right-14 p-4'>
         <FaPhotoVideo size={34} className='text-black dark:text-white' />
-      </Link>
+      </Link> */}
       <PandaMessage key={'panda-message-component'} pandaMessage={pandaMessage} pandaMood={pandaMood} setPandaMessage={setPandaMessage} />
       <DailyPicture key={'daily-picture-component'} dailyPictures={dailyPictures} openDailyPicture={openDailyPicture} setOpenDailyPicture={setOpenDailyPicture} />
       <PandaSong key={'panda-song-component'} pandaSong={pandaSong} pandaSongLink={pandaSongLink} setPandaSong={setPandaSong} />
