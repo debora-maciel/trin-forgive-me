@@ -58,7 +58,7 @@ export default function NavigateHistory() {
             >
                 <DialogTitle className='font-bold'>
                     <div className='font-bold text-center text-xl mb-2'>
-                        {"That's exclusive, what's the pasword?"}
+                        {"That's exclusive, what's the password?"}
                     </div>
                 </DialogTitle>
                 <DialogContent>
