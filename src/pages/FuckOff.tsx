@@ -4,9 +4,8 @@ export default function Fuckoff() {
             my god ure just an avoidant {":') "}
             <br />
             that's so funny we could've worked out.
-            so sad that u cant handle intimacy <br />
-
-            <br />
+             <br />
+             so sad that u cant handle intimacy <br />
             we were so hot together :/
         </div>
     )
