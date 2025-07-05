@@ -1,6 +1,13 @@
 {
     "mood": "happy",
     "song": "https://open.spotify.com/embed/track/3k2ccZTU1D3JK9hVR0qdbO?utm_source=generator",
+    "videos": [
+        {
+        "title": "TRYING (2021) | ADHD Short Film | Sam Labrecque",
+        "description": "",
+        "link": "https://youtu.be/LGzwoPJ3sE0"
+        }
+    ],
     "message": "im proud of myself for controlling my overthinking",
     "messages": [
         {
