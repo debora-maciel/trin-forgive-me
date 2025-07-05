@@ -2,10 +2,12 @@ import spotify from '/spotify.png'
 import camera from '/camera.png'
 import '../App.css'
 import { useEffect, useState } from 'react'
+import HistoryIcon from '@mui/icons-material/History';
 import PandaMessage from './components/PandaMessage'
 import DailyPicture from './components/DailyPicture'
 import PandaSong from './components/PandaSong'
 import type { DailyPictureType } from './components/DailyPictureSwipe'
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [pandaMessage, setPandaMessage] = useState<string>('')
@@ -56,12 +58,12 @@ function Home() {
         return response.json();
       })
       .then(data => {
-        console.log('Fetched JSON:', data);
         localStorage.setItem('pandaMood', JSON.stringify(data.mood));
         localStorage.setItem('pandaMessage', JSON.stringify(data.message));
         localStorage.setItem('pandaImage', JSON.stringify(data.image));
-        console.log('Panda mood:', data);
-        setDailyPictures(data.dailyPictures)
+        localStorage.setItem('pandaMessages', JSON.stringify(data.messages));
+        localStorage.setItem('dailyPictures', JSON.stringify(data.dailyPictures));
+        setDailyPictures(data.dailyPictures);
         setPandaSongLink(data.song);
       })
       .catch(error => {
@@ -71,6 +73,9 @@ function Home() {
 
   return (
     <div className='flex flex-col items-center justify-center h-full'>
+      <Link to="/history" className='absolute top-0 right-0 p-4'>
+        <HistoryIcon fontSize='large' className='text-black dark:text-white'/>
+      </Link>
       <PandaMessage key={'panda-message-component'} pandaMessage={pandaMessage} pandaMood={pandaMood} setPandaMessage={setPandaMessage} />
       <DailyPicture key={'daily-picture-component'} dailyPictures={dailyPictures} openDailyPicture={openDailyPicture} setOpenDailyPicture={setOpenDailyPicture} />
       <PandaSong key={'panda-song-component'} pandaSong={pandaSong} pandaSongLink={pandaSongLink} setPandaSong={setPandaSong} />
