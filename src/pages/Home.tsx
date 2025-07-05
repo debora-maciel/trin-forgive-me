@@ -1,20 +1,22 @@
 import spotify from '/spotify.png'
-import camera from '/camera.png'
+// import camera from '/camera.png'
 import '../App.css'
 import { useEffect, useState } from 'react'
-import HistoryIcon from '@mui/icons-material/History';
 import PandaMessage from './components/PandaMessage'
-import DailyPicture from './components/DailyPicture'
-import PandaSong from './components/PandaSong'
-import type { DailyPictureType } from './components/DailyPictureSwipe'
+// import DailyPicture from './components/DailyPicture'
+import { MdHistory } from "react-icons/md";
+// import { FaPhotoVideo } from "react-icons/fa"
+import { CiViewTimeline } from "react-icons/ci";
+// import PandaSong from './components/PandaSong'
+// import type { DailyPictureType } from './components/DailyPictureSwipe'
 import { Link } from 'react-router-dom';
 
 function Home() {
   const [pandaMessage, setPandaMessage] = useState<string>('')
   const [pandaSongLink, setPandaSongLink] = useState<string>('')
-  const [pandaSong, setPandaSong] = useState<boolean>(false)
-  const [openDailyPicture, setOpenDailyPicture] = useState<boolean>(false)
-  const [dailyPictures, setDailyPictures] = useState<DailyPictureType[]>([])
+  // const [pandaSong, setPandaSong] = useState<boolean>(false)
+  // const [openDailyPicture, setOpenDailyPicture] = useState<boolean>(false)
+  // const [dailyPictures, setDailyPictures] = useState<DailyPictureType[]>([])
   const [pandaMood, setPandaMood] = useState<string>('')
 
   function onWhatAreUfeelingsToday() {
@@ -37,7 +39,7 @@ function Home() {
   }
 
   function onSongOfTheDay() {
-    setPandaSong(true)
+    // setPandaSong(true)
   }
 
   const storedImage = () => {
@@ -58,12 +60,13 @@ function Home() {
         return response.json();
       })
       .then(data => {
+        localStorage.setItem('interestingVideos', JSON.stringify(data.videos));
         localStorage.setItem('pandaMood', JSON.stringify(data.mood));
         localStorage.setItem('pandaMessage', JSON.stringify(data.message));
         localStorage.setItem('pandaImage', JSON.stringify(data.image));
         localStorage.setItem('pandaMessages', JSON.stringify(data.messages));
         localStorage.setItem('dailyPictures', JSON.stringify(data.dailyPictures));
-        setDailyPictures(data.dailyPictures);
+        // setDailyPictures(data.dailyPictures);
         setPandaSongLink(data.song);
       })
       .catch(error => {
@@ -74,11 +77,18 @@ function Home() {
   return (
     <div className='flex flex-col items-center justify-center h-full'>
       <Link to="/history" className='absolute top-0 right-0 p-4'>
-        <HistoryIcon fontSize='large' className='text-black dark:text-white'/>
+        <MdHistory size={34} className='text-black dark:text-white' />
       </Link>
+      <Link to="/time-line" className='absolute top-0 right-24 p-4'>
+        <CiViewTimeline size={34} className='text-black dark:text-white' />
+      </Link>
+      {/* <Link to="/interesting-videos" className='absolute top-0 right-14 p-4'>
+        <FaPhotoVideo size={34} className='text-black dark:text-white' />
+      </Link> */}
+
       <PandaMessage key={'panda-message-component'} pandaMessage={pandaMessage} pandaMood={pandaMood} setPandaMessage={setPandaMessage} />
-      <DailyPicture key={'daily-picture-component'} dailyPictures={dailyPictures} openDailyPicture={openDailyPicture} setOpenDailyPicture={setOpenDailyPicture} />
-      <PandaSong key={'panda-song-component'} pandaSong={pandaSong} pandaSongLink={pandaSongLink} setPandaSong={setPandaSong} />
+      {/* <DailyPicture key={'daily-picture-component'} dailyPictures={dailyPictures} openDailyPicture={openDailyPicture} setOpenDailyPicture={setOpenDailyPicture} /> */}
+      {/* <PandaSong key={'panda-song-component'} pandaSong={pandaSong} pandaSongLink={pandaSongLink} setPandaSong={setPandaSong} /> */}
       <div>
         {/* <a href="https://www.economist.com/sites/default/files/images/print-edition/20160910_CNP002_0.jpg" target="_blank"> */}
         <img draggable={true} src={storedImage()} className='w-[200px]' alt={storedImage()} />
@@ -101,11 +111,11 @@ function Home() {
           </p>
         </div>
       )}
-      {dailyPictures.length > 0 && (
+      {/* {dailyPictures.length > 0 && (
         <button onClick={() => setOpenDailyPicture(true)} className="rounded-[8px] bg-green-500 flex gap-2 items-center justify-center ">
           <img src={camera} alt="Photo logo" className='w-[20px]' />  Picture of the day
         </button>
-      )}
+      )} */}
       {/* <Link to={'/send-message'} className="read-the-docs mt-3 text-sm">
         Message Panda Arrependido
       </Link> */}
