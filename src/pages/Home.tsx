@@ -2,9 +2,10 @@ import spotify from '/spotify.png'
 import camera from '/camera.png'
 import '../App.css'
 import { useEffect, useState } from 'react'
-import HistoryIcon from '@mui/icons-material/History';
 import PandaMessage from './components/PandaMessage'
 import DailyPicture from './components/DailyPicture'
+import { MdHistory } from "react-icons/md";
+import { FaPhotoVideo } from "react-icons/fa"
 import PandaSong from './components/PandaSong'
 import type { DailyPictureType } from './components/DailyPictureSwipe'
 import { Link } from 'react-router-dom';
@@ -58,6 +59,7 @@ function Home() {
         return response.json();
       })
       .then(data => {
+        localStorage.setItem('interestingVideos', JSON.stringify(data.videos));
         localStorage.setItem('pandaMood', JSON.stringify(data.mood));
         localStorage.setItem('pandaMessage', JSON.stringify(data.message));
         localStorage.setItem('pandaImage', JSON.stringify(data.image));
@@ -74,7 +76,10 @@ function Home() {
   return (
     <div className='flex flex-col items-center justify-center h-full'>
       <Link to="/history" className='absolute top-0 right-0 p-4'>
-        <HistoryIcon fontSize='large' className='text-black dark:text-white'/>
+        <MdHistory size={34} className='text-black dark:text-white' />
+      </Link>
+      <Link to="/interesting-videos" className='absolute top-0 right-14 p-4'>
+        <FaPhotoVideo size={34} className='text-black dark:text-white' />
       </Link>
       <PandaMessage key={'panda-message-component'} pandaMessage={pandaMessage} pandaMood={pandaMood} setPandaMessage={setPandaMessage} />
       <DailyPicture key={'daily-picture-component'} dailyPictures={dailyPictures} openDailyPicture={openDailyPicture} setOpenDailyPicture={setOpenDailyPicture} />
