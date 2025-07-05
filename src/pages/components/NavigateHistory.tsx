@@ -72,7 +72,7 @@ export default function NavigateHistory() {
                          />
                     <p className='text-xs mt-2 ml-2'>
                         Tip: Your name <b className='bg-gray-200 w-min font-light px-2 pb-1 rounded mx-1'>space</b>
-                        First gift that i gave to u in berlin
+                        First gift i gave to u 
                     </p>
                 </DialogContent>
                 <DialogActions className='flex justify-center'>
