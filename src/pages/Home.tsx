@@ -8,7 +8,7 @@ import { MdHistory } from "react-icons/md";
 // import { FaPhotoVideo } from "react-icons/fa"
 import { CiViewTimeline } from "react-icons/ci";
 // import PandaSong from './components/PandaSong'
-import type { DailyPictureType } from './components/DailyPictureSwipe'
+// import type { DailyPictureType } from './components/DailyPictureSwipe'
 import { Link } from 'react-router-dom';
 
 function Home() {
@@ -16,7 +16,7 @@ function Home() {
   const [pandaSongLink, setPandaSongLink] = useState<string>('')
   // const [pandaSong, setPandaSong] = useState<boolean>(false)
   // const [openDailyPicture, setOpenDailyPicture] = useState<boolean>(false)
-  const [dailyPictures, setDailyPictures] = useState<DailyPictureType[]>([])
+  // const [dailyPictures, setDailyPictures] = useState<DailyPictureType[]>([])
   const [pandaMood, setPandaMood] = useState<string>('')
 
   function onWhatAreUfeelingsToday() {
@@ -66,7 +66,7 @@ function Home() {
         localStorage.setItem('pandaImage', JSON.stringify(data.image));
         localStorage.setItem('pandaMessages', JSON.stringify(data.messages));
         localStorage.setItem('dailyPictures', JSON.stringify(data.dailyPictures));
-        setDailyPictures(data.dailyPictures);
+        // setDailyPictures(data.dailyPictures);
         setPandaSongLink(data.song);
       })
       .catch(error => {
