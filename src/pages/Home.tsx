@@ -58,7 +58,6 @@ function Home() {
         return response.json();
       })
       .then(data => {
-        console.log('Fetched JSON:', data);
         localStorage.setItem('pandaMood', JSON.stringify(data.mood));
         localStorage.setItem('pandaMessage', JSON.stringify(data.message));
         localStorage.setItem('pandaImage', JSON.stringify(data.image));

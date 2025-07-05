@@ -44,6 +44,7 @@ export default function TabHistory({ messages, dailyPictures }: ITabHistoryProps
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
+        console.log( event);
     };
 
     return (
