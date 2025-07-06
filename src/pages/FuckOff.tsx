@@ -1,12 +1,9 @@
 export default function Fuckoff() {
     return (
         <div>
-            my god ure just an avoidant {":') "}
-            <br />
-            that's so funny we could've worked out.
-             <br />
-             so sad that u cant handle intimacy <br />
-            we were so hot together :/
+            I'm sorry for not giving you security <br/>
+            I forgive you for the lack of communication 
+            and clarity about what you were feeling.
         </div>
     )
 }
